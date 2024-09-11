@@ -1,0 +1,31 @@
+name: scanoss
+
+on: workflow_dispatch
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+  actions: read
+
+jobs:
+  scanoss:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run SCANOSS Code Scan
+        id: scanoss-code-scan-step
+        uses: scanoss/actions-scan@v0.2.1
+        with:
+          api.key: fD4P8wbfWS9XHvsrzcDrB0zu
+          api.url: https://api.scanoss.com/scan/direct
+          dependencies.enabled: true
+          policies.halt_on_failure: false
+          policies: copyleft, undeclared
+
+      - name: Print stdout scan command
+        run: echo "${{ steps.scanoss-code-scan-step.outputs.stdout-scan-command }}"
+          
