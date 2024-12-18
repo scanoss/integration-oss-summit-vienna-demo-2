@@ -33,5 +33,5 @@ jobs:
           dependencies.enabled: true
           licenses.copyleft.include: MIT
           dependencies.scope.include: devDependencies
-          sbom.enable: true
+          sbom.enabled: true
           scanossSettings: false
