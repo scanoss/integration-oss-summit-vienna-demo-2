@@ -1,0 +1,10 @@
+{
+  "components": [
+    {
+      "purl": "pkg:github/kingventrix007/kickstart"
+    },
+    {
+      "purl": "pkg:github/zephyrproject-rtos/zephyr-testing"
+    }
+  ]
+}
